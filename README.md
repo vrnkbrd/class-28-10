@@ -1,5 +1,6 @@
 # class-28-10
-Task 6kyu A runner, who runs with base speed s with duration t will cover a distances d: d = s * t
+### Task 6kyu 
+A runner, who runs with base speed s with duration t will cover a distances d: d = s * t
 However, this runner can sprint for one unit of time with double speed s * 2
 After sprinting, base speed s will permanently reduced by 1, and for next one unit of time runner will enter recovery phase and can't sprint again.
 
@@ -10,13 +11,16 @@ Input:
 1 <= t < 1000
 
 My solution:
+```Java
 public class Kata {
   public static int solution(int speed, int time) {
      int boost = Math.min(speed / 3 + 1, (time + 1) / 2);
     return (time + boost) * speed - boost * (boost - 1) * 3 / 2;
   }
 }
+```
 ### Fav solution: 
+```Java
 public class Kata {
   private static final int[][] table = tabulate(1001, 1001);
   
@@ -54,9 +58,10 @@ public class Kata {
     return table;
   }
 }
+```
 This one is exactly what I expected to do in the beginning. But I found the way to make it shorter. 
 
-Task 2 6 kyu 
+Task 6 kyu 
 Write a simple parser that will parse and run Deadfish.
 
 Deadfish has 4 commands, each 1 character long:
@@ -70,6 +75,7 @@ Invalid characters should be ignored.
 Deadfish.parse("iiisdoso") =- new int[] {8, 64};
 
 My solution: 
+```Java
 public class DeadFish {
     public static int[] parse(String data) {
         int value = 0;
@@ -87,7 +93,10 @@ public class DeadFish {
         return result;
     }
 }
+```
+
 Fav solution: 
+```Java
 import java.util.ArrayList;
 import java.util.List;
 public class DeadFish {
@@ -110,8 +119,6 @@ public class DeadFish {
             if(i.equals( "d")){
                 res -= 1;
             }
-
-
         }
         System.out.println(list.size());
         int[] outputarray = new int[list.size()];
@@ -121,8 +128,6 @@ public class DeadFish {
             outputarray[i] = list.get(i);
         }
         return outputarray;
-
-
-
     }
 }
+```
